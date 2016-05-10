@@ -1,0 +1,39 @@
+Earlier this week, I received a technical test to complete for a software development company I was interviewing with. One question stuck in particular stuck with me: 
+
+"could you write a javascript interpreter in javascript?"
+
+This surprised me since for someone new to software development like me, the idea of writing an interpreter of a language in the same language sounded quite funny, but as I thought more about it, it was similar to an english teacher teaching children how to read english...by speaking in english to them!
+
+So you guessed it, I had to answer no to the company, but I did told them that with some research I believe that I could make one. And the more I thought about it afterwards, the more I thought that it would be a great way to understand better how computer works, let's see how I did it:
+
+ The first step I took was to look at how this problem had been solved before. The most useful thing I found was this text on how to write a Little Lisp Interpreter made by Mary Rose Cook, which brilliantly summarize and explains the task. I decided I would base my javascript interpreter on her lisp interpreter.
+
+ But before starting to code (ok, maybe a bit after), I took a look at the  wikipedia article on interpreters to better understand the theory behind them:
+
+"An interpreter generally uses one of the following strategies for program execution:
+
+    parse the source code and perform its behavior directly.
+    translate source code into some efficient intermediate representation and immediately execute this.
+    explicitly execute stored precompiled code[1] made by a compiler which is part of the interpreter system.
+"
+
+For this article, we will focus on the first part: parsing the target code.
+
+Parsing as two steps: the first one being token consists of breaking the code we wish to convert into separate meaningful elements. Javascript's type of values: we have numeric values, string values ('hello'), punctuators (+,-,*,/,%,=,;,(,)) and keywords(function, var, typeof, etc...) . So let's first separate these elements with JS's split method. We will do this by using the split method of javascript.
+
+The second phase, consists of making a parse tree. This is a bit more challenging but even more fascinating, so stay with me here! A parse tree represents the synthatic structure of a langage, be it for humans or for machines. Thus, it uses two functions: hierarchizing and categorizing each value.
+
+the hierarchizing function will return. Since a tree consists of many subtrees, it makes sense to write it recursively.
+
+The categorize function will return javascript object with their type and their value.
+
+And that's it, we now we have our parsed function!
+
+Now I don't claim this is perfect, so if you have any suggestions on things that could be done better in my implementation, please don't hesitate to comment!
+
+So that's it for part 1! <a href> Here's part 2 </a>.
+
+Sources:
+
+https://www.recurse.com/blog/21-little-lisp-interpreter
+https://blog.redradix.com/working-with-javascript-ast/
